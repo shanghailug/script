@@ -68,7 +68,8 @@ git push
 
 echo "------ now do post ---------"
 
-post_file="$WEB_REPO/_posts/2016-05-19-h4-photo.markdown"
+prefix=`date +%Y-%m-%d`
+post_file="$WEB_REPO/_posts/${prefix}-h4-photo.markdown"
 
 echo "---
 layout: post
