@@ -58,7 +58,8 @@ for i in "$@"; do
     convert -strip "$i" -resize $sz "$c"
 done
 
-git add *.JPG *.jpg
+git add *.JPG
+git add *.jpg
 
 git commit -a -m "Add photos for Hacking Thursday Night of $(date +%F)"
 
