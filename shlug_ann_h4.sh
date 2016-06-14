@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 WEB_REPO=$HOME/proj/doc/shanghailug.github.io
 

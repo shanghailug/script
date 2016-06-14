@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 RES_REPO=$HOME/proj/doc/res`date +%Y`
 WEB_REPO=$HOME/proj/doc/shanghailug.github.io
