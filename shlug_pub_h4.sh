@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# avoid cross day boundary
+export TZ=GMT
+
 RES_REPO=$HOME/proj/doc/res`date +%Y`
 WEB_REPO=$HOME/proj/doc/shanghailug.github.io
 TN_SIZE=240x160
