@@ -23,8 +23,8 @@ confirm () {
 }
 
 fmt() {
-  y=`date +%y`
-  m=`date +%m`
+  y=`date +%-y`
+  m=`date +%-m`
   d=`date +%d`
   t="0123456789abcdefghijklmnopqrstuvwxyz"
   echo "${t:$y:1}${t:$m:1}$d"
