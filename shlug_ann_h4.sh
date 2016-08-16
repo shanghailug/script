@@ -44,7 +44,7 @@ categories: h4
 - 时间：一般19：00~22：00
 - 消费：随意
 
-有任何想学习或者愿意分享的内容，可以回复本帖，让大家事先做好准备。
+有任何想学习或者愿意分享的内容，请在邮件列表回复本帖，让大家事先做好准备。
 
 有关Hacking Thursday活动的介绍：
 [http://www.shlug.org/?page_id=523](http://www.shlug.org/?page_id=523)
