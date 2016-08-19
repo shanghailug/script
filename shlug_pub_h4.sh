@@ -13,7 +13,7 @@ confirm () {
     # call with a prompt string or use a default
     read -r -p "${1:-Are you sure?} [Y/n] " response
     case $response in
-        [nN][oO]|[nN]) 
+        [nN][oO]|[nN])
             false
             ;;
         *)
@@ -92,7 +92,7 @@ done
 
 echo "
 有关Hacking Thursday活动的介绍：
-http://www.shlug.org/?page_id=523
+http://www.shlug.org/about/#hacking-thursday
 
 SHLUG的新浪微博地址：http://weibo.com/shanghailug 有每次活动照片以及信息发布
 
@@ -111,4 +111,3 @@ git add "$post_file"
 git commit -m "Post H4 photos for `date +%F`"
 
 git push
-

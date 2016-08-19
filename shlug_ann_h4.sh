@@ -6,7 +6,7 @@ confirm () {
     # call with a prompt string or use a default
     read -r -p "${1:-Are you sure?} [Y/n] " response
     case $response in
-        [nN][oO]|[nN]) 
+        [nN][oO]|[nN])
             false
             ;;
         *)
@@ -47,7 +47,7 @@ categories: h4
 有任何想学习或者愿意分享的内容，请在邮件列表回复本帖，让大家事先做好准备。
 
 有关Hacking Thursday活动的介绍：
-[http://www.shlug.org/?page_id=523](http://www.shlug.org/?page_id=523)
+[http://www.shlug.org/about/#hacking-thursday(http://www.shlug.org/about/#hacking-thursday)]
 
 SHLUG的新浪微博地址：[http://weibo.com/shanghailug](http://weibo.com/shanghailug) 有每次活动照片以及信息发布
 " > $post_file
@@ -65,4 +65,3 @@ git add "$post_file"
 git commit -m "Post H4 announcement for `date +%F`"
 
 git push
-
