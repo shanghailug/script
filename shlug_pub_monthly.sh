@@ -108,7 +108,7 @@ confirm "post " || exit
 cd "$WEB_REPO"
 
 git add "$post_file"
-git commit -m "Post H4 photos for `date +%F`"
+git commit -m "Post monthly meetup photos for `date +%F`"
 
 git push
 
