@@ -3,11 +3,13 @@
 # avoid cross day boundary
 export TZ=GMT
 
-RES_REPO=$HOME/proj/doc/res`date +%Y`
+Q=$((($(date +%-m)-1)/3+1))
+
+RES_REPO=$HOME/proj/doc/res`date +%Y`q$Q
 WEB_REPO=$HOME/proj/doc/shanghailug.github.io
 TN_SIZE=240x160
 
-RES_REMOTE="https://raw.githubusercontent.com/shanghailug/res`date +%Y`"
+RES_REMOTE="https://raw.githubusercontent.com/shanghailug/res`date +%Y`q$Q"
 
 confirm () {
     # call with a prompt string or use a default

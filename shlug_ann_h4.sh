@@ -32,12 +32,12 @@ post_file="$WEB_REPO/_posts/${prefix}-h4.markdown"
 
 echo "---
 layout: post
-title:  \"${h4_date} 吃吃喝喝Hacking Thursday Night聚餐活动 at Dunkin Donuts\"
+title:  \"${h4_date} 吃吃喝喝Hacking Thursday Night聚餐活动 at JAcafe花园咖啡\"
 date:   $(date '+%F %H:%M:%S %z')
 categories: h4
 ---
-- 店名：Dunkin Donuts 唐恩都乐
-- 点评：[http://www.dianping.com/shop/21378231](http://www.dianping.com/shop/21378231)
+- 店名：JAcafe花园咖啡
+- 点评：[http://www.dianping.com/shop/2019466](http://www.dianping.com/shop/2019466)
 - 地址：静安区南京西路1649号静安公园内(近静安公园)
 - 走法：地铁2号线静安寺站，5号口出来，下沉式广场东边上来，直走即可
 - 内容：没有演讲主题,自由交流
