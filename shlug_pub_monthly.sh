@@ -94,7 +94,7 @@ done
 
 echo "
 有关Hacking Thursday活动的介绍：
-http://www.shlug.org/?page_id=523
+http://www.shlug.org/about/#hacking-thursday
 
 SHLUG的新浪微博地址：http://weibo.com/shanghailug 有每次活动照片以及信息发布
 
