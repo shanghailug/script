@@ -10,10 +10,12 @@ next_thursday() {
     done
 }
 
-url="http://v.juhe.cn/calendar/month?year-month="
 h4_month=`next_thursday "%Y-%-m"`
 h4_date=`next_thursday "%Y-%-m-%-d"`
-url="$url$h4_month&key=put_your_key_here"
+
+: ${JUHE_APPKEY:?"Need to set JUHE_APPKEY"}
+url="http://v.juhe.cn/calendar/month?year-month="
+url="$url$h4_month&key=$JUHE_APPKEY"
 json=`curl $url | jq -rf jq_filter.jq`
 if [ $? -ne 0 ]
 then
