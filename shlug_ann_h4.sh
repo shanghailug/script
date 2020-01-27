@@ -40,7 +40,7 @@ if [ $holiday -eq 0 ]
 then
 echo "---
 layout: post
-title:  \"${h4_date} 吃吃喝喝Hacking Thursday Night聚餐活动 暂停一次\"
+title:  \"${h4_date} 暂停本周Hacking Thursday Night活动\"
 date:   $(date '+%F %H:%M:%S %z')
 categories: h4
 ---
