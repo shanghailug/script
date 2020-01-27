@@ -13,6 +13,15 @@ next_thursday() {
 h4_month=`next_thursday "%Y-%-m"`
 h4_date=`next_thursday "%Y-%-m-%-d"`
 
+# check holiday in list first
+while IFS= read -r line; do
+    #echo "Text read from file: $line"
+    if [ "$line" = "$h4_date" ]; then
+        echo 0
+        exit
+    fi
+done < holiday_list
+
 : ${JUHE_APPKEY:?"Need to set JUHE_APPKEY"}
 url="http://v.juhe.cn/calendar/month?year-month="
 url="$url$h4_month&key=$JUHE_APPKEY"
