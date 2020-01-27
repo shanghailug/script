@@ -88,4 +88,6 @@ cd "$WEB_REPO"
 git add "$post_file"
 git commit -m "Post H4 announcement for `date +%F`"
 
+git fetch
+git rebase origin/master
 git push
