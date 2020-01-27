@@ -30,6 +30,28 @@ prefix=`date +%F`
 h4_date=`next_thursday "%Y/%m/%d"`
 post_file="$WEB_REPO/_posts/${prefix}-h4.markdown"
 
+url="http://v.juhe.cn/calendar/month?year-month="
+h4_month=`next_thursday "%Y-%-m"`
+h4_date=`next_thursday "%Y-%-m-%-d"`
+url="$url$h4_month&key=put_your_key_here"
+holiday=`curl $url | jq -rf jq_filter.jq | grep -w $h4_date | echo $?`
+
+if [ $holiday -eq 0 ]
+then
+echo "---
+layout: post
+title:  \"${h4_date} 吃吃喝喝Hacking Thursday Night聚餐活动 暂停一次\"
+date:   $(date '+%F %H:%M:%S %z')
+categories: h4
+---
+欢度假期，本期活动取消。
+
+有关Hacking Thursday活动的介绍：
+[http://www.shlug.org/about/#hacking-thursday](http://www.shlug.org/about/#hacking-thursday)
+
+SHLUG的新浪微博地址：[http://weibo.com/shanghailug](http://weibo.com/shanghailug) 有每次活动照片以及信息发布
+" > $post_file
+else
 echo "---
 layout: post
 title:  \"${h4_date} 吃吃喝喝Hacking Thursday Night聚餐活动 at JAcafe花园咖啡\"
@@ -52,6 +74,8 @@ categories: h4
 SHLUG的新浪微博地址：[http://weibo.com/shanghailug](http://weibo.com/shanghailug) 有每次活动照片以及信息发布
 " > $post_file
 
+fi
+
 echo "$post_file"
 echo ">>>>>>>>>>>>>"
 
@@ -64,4 +88,6 @@ cd "$WEB_REPO"
 git add "$post_file"
 git commit -m "Post H4 announcement for `date +%F`"
 
+git fetch
+git rebase origin/master
 git push
