@@ -29,14 +29,9 @@ next_thursday() {
 prefix=`date +%F`
 h4_date=`next_thursday "%Y/%m/%d"`
 post_file="$WEB_REPO/_posts/${prefix}-h4.markdown"
+is_holiday=`./is_holiday.sh`
 
-url="http://v.juhe.cn/calendar/month?year-month="
-h4_month=`next_thursday "%Y-%-m"`
-h4_date=`next_thursday "%Y-%-m-%-d"`
-url="$url$h4_month&key=put_your_key_here"
-holiday=`curl $url | jq -rf jq_filter.jq | grep -w $h4_date | echo $?`
-
-if [ $holiday -eq 0 ]
+if [ $is_holiday -eq 0 ]
 then
 echo "---
 layout: post
