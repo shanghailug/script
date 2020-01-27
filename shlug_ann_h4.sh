@@ -29,9 +29,16 @@ next_thursday() {
 prefix=`date +%F`
 h4_date=`next_thursday "%Y/%m/%d"`
 post_file="$WEB_REPO/_posts/${prefix}-h4.markdown"
-is_holiday=`./is_holiday.sh`
+check_res=`./check.sh`
 
-if [ $is_holiday -eq 0 ]
+case $check_res in
+    "1") reason="因为其他原因" ;;
+    "2") reason="欢度假期" ;;
+    "0") reason="" ;;
+    *) exit 1
+esac
+
+if [ "X$check_res" != "X0" ]
 then
 echo "---
 layout: post
@@ -39,7 +46,7 @@ title:  \"${h4_date} 暂停本周Hacking Thursday Night活动\"
 date:   $(date '+%F %H:%M:%S %z')
 categories: h4
 ---
-欢度假期，本期活动取消。
+${reason}，本期活动取消。
 
 有关Hacking Thursday活动的介绍：
 [http://www.shlug.org/about/#hacking-thursday](http://www.shlug.org/about/#hacking-thursday)
