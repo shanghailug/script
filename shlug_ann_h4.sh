@@ -29,7 +29,8 @@ next_thursday() {
 prefix=`date +%F`
 h4_date=`next_thursday "%Y/%m/%d"`
 post_file="$WEB_REPO/_posts/${prefix}-h4.markdown"
-check_res=`./check.sh`
+./check.sh
+check_res=`echo $?`
 
 case $check_res in
     "1") reason="因为其他原因" ;;

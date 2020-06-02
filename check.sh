@@ -32,12 +32,14 @@ then
 	exit
 fi
 
-is_holiday=`echo $json | grep -w $h4_date | echo $?`
+echo $json | grep -w $h4_date &> /dev/null
+is_holiday=`echo $?`
 
 if [ "X$is_holiday" = X0 ]
 then
-    echo 2
+    echo $h4_date is holiday
     exit 2
 fi
 
-echo 0
+echo $h4_date is not holiday
+exit 0
