@@ -7,9 +7,9 @@ Q=$((($(date +%-m)-1)/3+1))
 
 RES_REPO=$HOME/proj/doc/res`date +%Y`q$Q
 WEB_REPO=$HOME/proj/doc/shanghailug.github.io
-TN_SIZE=240x160
+DIR=$(dirname $(readlink -f "$0"))
 
-RES_REMOTE="https://raw.githubusercontent.com/shanghailug/res`date +%Y`q$Q"
+RES_REMOTE="/res`date +%Y`q$Q"
 
 confirm () {
     # call with a prompt string or use a default
@@ -52,15 +52,13 @@ cd "$dst"
 trans() {
     a=${1%.jpg}
     b=${a%.JPG}
-    sz=$2
-    echo "${b}.${sz}.jpg"
+    echo "${b}.1920p.jpg"
 }
 
 for i in "$@"; do
-    sz=$TN_SIZE
-    c=`trans $i $sz`
+    c=`trans $i`
     echo "$i -> $c"
-    convert -strip "$i" -resize $sz "$c"
+    $DIR/jpg_1920p_1000k.sh "$i"
 done
 
 git add *.JPG
@@ -86,8 +84,8 @@ categories: h4
 " > $post_file
 
 for i in $@; do
-  j=`trans $i $TN_SIZE`
-  echo "[<img src='$RES_REMOTE/master/$dir/$j'>]($RES_REMOTE/master/$dir/$i)" \
+  j=`trans $i`
+  echo "[<img src='$RES_REMOTE/$dir/$j' style='margin:10px'>]($RES_REMOTE/$dir/$i)" \
     >> $post_file
 done
 
