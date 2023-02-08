@@ -29,7 +29,7 @@ next_thursday() {
 prefix=`date +%F`
 h4_date=`next_thursday "%Y/%m/%d"`
 post_file="$WEB_REPO/_posts/${prefix}-h4.markdown"
-./check.sh
+./check.sh || true
 check_res=`echo $?`
 
 case $check_res in

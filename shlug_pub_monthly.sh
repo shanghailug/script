@@ -7,9 +7,9 @@ Q=$((($(date +%-m)-1)/3+1))
 
 RES_REPO=$HOME/proj/doc/res`date +%Y`q$Q
 WEB_REPO=$HOME/proj/doc/shanghailug.github.io
+DIR=$(dirname $(readlink -f "$0"))
 
 RES_REMOTE="/res`date +%Y`q$Q"
-DIR=$(dirname $(readlink -f "$0"))
 
 confirm () {
     # call with a prompt string or use a default
@@ -56,6 +56,7 @@ trans() {
 }
 
 for i in "$@"; do
+    c=`trans $i`
     echo "$i -> $c"
     $DIR/jpg_1920p_1000k.sh "$i"
 done
@@ -83,8 +84,8 @@ categories: monthly
 " > $post_file
 
 for i in $@; do
-  j=`trans $i $TN_SIZE`
-  echo "[<img src='$RES_REMOTE/$dir/$j'>]($RES_REMOTE/$dir/$i)" \
+  j=`trans $i`
+  echo "[<img src='$RES_REMOTE/$dir/$j' style='margin:10px'>]($RES_REMOTE/$dir/$i)" \
     >> $post_file
 done
 
